@@ -1,5 +1,6 @@
+import { v4 as uuidv4 } from 'uuid';
 import { type Video } from './types';
-import { type VideoSort } from './schemas';
+import { type VideoSort, type CreateVideoInput } from './schemas';
 import videoData from './videos.json';
 
 class VideoService {
@@ -21,6 +22,21 @@ class VideoService {
     }
 
     return sortedVideos;
+  }
+
+  createVideo(input: CreateVideoInput): Video {
+    const newVideo: Video = {
+      id: uuidv4(),
+      title: input.title,
+      thumbnail_url: `https://picsum.photos/300/200?random=${Math.random()}`,
+      created_at: new Date().toISOString(),
+      duration: Math.floor(Math.random() * 600) + 60,
+      views: 0,
+      tags: input.tags || [],
+    };
+
+    this.videos.push(newVideo);
+    return newVideo;
   }
 }
 
