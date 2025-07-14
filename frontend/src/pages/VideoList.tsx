@@ -20,7 +20,12 @@ export function VideoList() {
       const response = await videoApi.getVideos(sortOption);
       setVideos(response.videos);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch videos');
+      console.error('Error fetching videos:', err);
+      if (err instanceof Error) {
+        setError(`Failed to load videos: ${err.message}`);
+      } else {
+        setError('Failed to load videos. Please check your connection.');
+      }
     } finally {
       setLoading(false);
     }
