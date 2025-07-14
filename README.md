@@ -12,6 +12,8 @@
 - **React Hook Form**
 - **Vitest**
 
+Used the vite setup, Used the official docs to setup tailwindCSS, then followed an online guide to get React router working (been using NextJS for the last few years but felt overkill)
+
 ### Backend
 
 - **TypeScript**
@@ -19,6 +21,8 @@
 - **Express**
 - **Zod**
 - **Vitest** with Supertest for API testing
+
+Followed a guide to setup ExpressJ (been using NestJS for the last few years but again is heavy and overkill)
 
 ## Setup Instructions
 
